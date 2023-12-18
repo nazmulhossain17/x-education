@@ -36,4 +36,13 @@ const createCourse = async (req, res) => {
   }
 };
 
-module.exports = { createCourse };
+const getAllCourses = async (req, res) => {
+  try {
+    const products = await Course.find();
+    res.status(201).json({ message: "All Courses", products });
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
+
+module.exports = { createCourse, getAllCourses };

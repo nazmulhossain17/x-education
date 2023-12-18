@@ -1,50 +1,53 @@
 const mongoose = require("mongoose");
 
-// Define the schema for the course
-const courseSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-  price: {
-    type: Number,
-    required: true,
-  },
-  duration: {
-    type: String,
-    required: true,
-  },
-  level: {
-    type: String,
-    required: true,
-  },
-  topics: {
-    type: [String],
-    required: true,
-  },
-  schedule: {
-    startDate: {
-      type: Date,
-      required: true,
-    },
-    endDate: {
-      type: Date,
-      required: true,
-    },
-    classDays: {
-      type: [String],
-      required: true,
-    },
-    classTime: {
+const courseSchema = new mongoose.Schema(
+  {
+    name: {
       type: String,
-      required: true,
+      required: [true, "Name is required"],
+      unique: true,
+    },
+    description: {
+      type: String,
+      required: [true, "Description is required"],
+    },
+    price: {
+      type: Number,
+      required: [true, "Price is required"],
+    },
+    duration: {
+      type: String,
+      required: [true, "Duration is required"],
+    },
+    level: {
+      type: String,
+      required: [true, "Level is required"],
+    },
+    topics: {
+      type: [String],
+      required: [true, "Topics is required"],
+    },
+    schedule: {
+      startDate: {
+        type: Date,
+        required: true,
+      },
+      endDate: {
+        type: Date,
+        required: true,
+      },
+      classDays: {
+        type: [String],
+        required: [true, "Class Days is required"],
+      },
+      classTime: {
+        type: String,
+        required: [true, "Class Time is required"],
+      },
     },
   },
-});
+  { timestamps: true }
+);
 
 // Create a Course model using the schema
 const Course = mongoose.model("Course", courseSchema);

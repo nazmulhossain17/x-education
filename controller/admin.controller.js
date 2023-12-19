@@ -59,10 +59,16 @@ const handleLogin = async (req, res) => {
       .cookie("access_token", token, { httpOnly: true })
       .json({ success: true, message: "Login successful" });
   } catch (error) {
-    return errorResponse(res, {
-      statusCode: 500,
-      message: error.message,
-    });
+    return res.status(500).send(error.message);
+  }
+};
+
+const handleLogout = async (req, res) => {
+  try {
+    res.clearCookie("access_token");
+    return res.status(200).json({ message: "Log out successful" });
+  } catch (error) {
+    return res.status(500).send(error.message);
   }
 };
 
@@ -210,6 +216,16 @@ const deleteCourse = async (req, res) => {
   }
 };
 
+const errorResponse = (
+  res,
+  { statusCode = 500, message = "Internal Server Error" }
+) => {
+  return res.status(statusCode).json({
+    success: false,
+    message: message,
+  });
+};
+
 module.exports = {
   createCourse,
   getAllCourses,
@@ -218,4 +234,6 @@ module.exports = {
   deleteCourse,
   processRegister,
   handleLogin,
+  errorResponse,
+  handleLogout,
 };

@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 
-// Define the schema for the course
 const authSchema = new mongoose.Schema(
   {
     name: {

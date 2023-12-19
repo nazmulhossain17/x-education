@@ -12,7 +12,7 @@ const courseSchema = new mongoose.Schema(
       required: [true, "Description is required"],
     },
     price: {
-      type: Number,
+      type: String,
       required: [true, "Price is required"],
     },
     duration: {

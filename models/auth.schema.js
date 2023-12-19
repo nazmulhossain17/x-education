@@ -8,7 +8,16 @@ const authSchema = new mongoose.Schema(
     email: {
       type: String,
       required: [true, "Email Address is required"],
+      lowercase: true,
       unique: true,
+      validate: {
+        validator: function (v) {
+          return /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+            v
+          );
+        },
+        message: "Please enter a valid email",
+      },
     },
     password: {
       type: String,

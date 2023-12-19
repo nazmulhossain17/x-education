@@ -19,7 +19,10 @@ router.get("/", (req, res) => {
 
 // register user
 router.post("/register", isLoggedOut, processRegister);
-// login user
+
+// login user. Please note that if you want to login as admin then the
+// email is: admin@gmail.com
+// password is: admin1234
 router.post("/login", isLoggedOut, handleLogin);
 // log out user
 router.get("/logout", isLoggedIn, handleLogout);

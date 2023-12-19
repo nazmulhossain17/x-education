@@ -2,7 +2,7 @@ Welcome to the X-education! This server is designed by Syed Nazmul Hossain.
 
 ## Project Overview
 
-This API is developed using JavaScript, Node.js, Express.js, and MongoDB to facilitate course management. To initiate interactions with the API, administrators are required to authenticate through a login process. Following authentication, administrators gain access to functionalities such as creating, updating, and deleting courses.
+This API is developed using JavaScript, Node.js, Express.js, and MongoDB to facilitate course management. To initiate interactions with the API, administrators are required to authenticate through a login process. Following authentication, administrators gain access to functionalities such as creating, updating, and deleting courses. I have deploy that api and anyone can see the course list....
 
 ## Getting Started
 

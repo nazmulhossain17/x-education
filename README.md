@@ -1,6 +1,25 @@
 Welcome to the X-education! This server is designed by Syed Nazmul Hossain.
 
-## Installation
+## Project Overview
+
+This API is developed using JavaScript, Node.js, Express.js, and MongoDB to facilitate course management. To initiate interactions with the API, administrators are required to authenticate through a login process. Following authentication, administrators gain access to functionalities such as creating, updating, and deleting courses.
+
+For user interactions, individuals can create accounts to access the course list. However, user privileges are limited to viewing the course catalog. If a user wishes to attain administrative rights, the modification of the isAdmin field within the database is necessary.
+
+## Getting Started
+
+Clone the project repository.
+Create a .env file in the project root and include the following configurations:
+
+```bash
+        DB_URL: MongoDB database URL.
+        PORT: Port for running the server.
+        JWT_KEY: Secret key for JWT token generation.
+```
+
+Run the Project
+
+Execute the following commands in the project directory:
 
 1. Clone this repository to your local machine:
 
@@ -20,30 +39,12 @@ Welcome to the X-education! This server is designed by Syed Nazmul Hossain.
     npm install
    ```
 
-## Description
+This will install the required dependencies and start the server. The API will be accessible at the specified port.
+Authentication
 
-I have created this api using javascript, nodejs, expressjs and mongodb. In this api first admin have to login then admin can create course, update course and delete course. User can also create account, but if you want to be admin then go to database and edit isAdmin to true. other user can't create course, update course and delete course, they want just show course list.
+Admins: Use the login endpoint to authenticate as an administrator. After successful authentication, admin privileges are granted for course management.
 
-```bash
-    http://localhost:5000/api/v1/all-course/
-```
+Users: Create an account to access the course list. Users are restricted from creating, updating, or deleting courses. To become an admin, update the isAdmin field in the database to true.
 
-<h4>Anyone can see that course list</h4>
-<br>
-<h4>Create Course</h4>
-
-```bash
-    http://localhost:5000/api/v1/create-course
-```
-
-<h4>Update Course</h4>
-
-```bash
-    http://localhost:5000/api/v1/update-course/:id
-```
-
-<h4>Delete Course</h4>
-
-```bash
-    http://localhost:5000/api/v1/delete-course/:id
-```
+Note:
+Ensure that the MongoDB database is properly configured, and the necessary environment variables are provided for seamless operation.

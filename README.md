@@ -19,3 +19,7 @@ Welcome to the X-education! This server is designed by Syed Nazmul Hossain.
    ```bash
     npm install
    ```
+
+## Description
+
+I have created this api using javascript, nodejs, expressjs and mongodb.
